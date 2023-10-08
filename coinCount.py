@@ -17,5 +17,4 @@ def coinCount(ar,tar):
 
 target = 18
 arr = [1, 5, 7]
-dp = [-1] * target
-print(coinCount(arr, target,dp))
+print(coinCount(arr, target))
