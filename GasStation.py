@@ -3,7 +3,7 @@
 def GasStation(gas, cost):
     if sum(gas) < sum(cost):
         return -1
-    g = gas[0]
+        
     re = 0
     tank = 0
     for i in range(len(gas)):
