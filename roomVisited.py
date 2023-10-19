@@ -10,7 +10,7 @@ def roomvisit(rooms):
         room = st.pop()
         vist.add(room)
         for key in rooms[room]:
-            if key in vist:
+            if key not in vist:
                 st.append(key)
     return len(vist) == len(rooms)
 
