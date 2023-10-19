@@ -15,7 +15,4 @@ def roomvisit(rooms):
     return len(vist) == len(rooms)
 
 
-
-
-
 print(roomvisit(rooms))
