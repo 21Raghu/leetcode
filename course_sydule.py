@@ -1,20 +1,25 @@
-def canFinish(self, numCourses, prerequisites):
-    graph = [[] for _ in xrange(numCourses)]
-    visit = [0 for _ in xrange(numCourses)]
-    for x, y in prerequisites:
-        graph[x].append(y)
-    def dfs(i):
-        if visit[i] == -1:
-            return False
-        if visit[i] == 1:
-            return True
-        visit[i] = -1
-        for j in graph[i]:
-            if not dfs(j):
-                return False
-        visit[i] = 1
-        return True
-    for i in xrange(numCourses):
-        if not dfs(i):
+import collections
+
+courses = [[0,1],[0,2]]
+
+course_leng = 3
+def can_complet(courses,course_leng):
+    adjList = collections.defaultdict(list)
+    for course,pre in courses:
+        adjList[pre].append(course)
+
+    def dfs(node,track):
+        track[node] = True
+        for n in adjList[node]:
+            if n in track or dfs(n,track):
+                return True
+        return False
+
+
+    for n in range(course_leng):
+        track = {}
+        if dfs(n,track):
             return False
     return True
+
+print(can_complet(courses,course_leng))
